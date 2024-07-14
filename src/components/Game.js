@@ -33,6 +33,7 @@ function Game() {
   const handleGo = () => {
     if (isRunning) {
       const lastDigit = Math.floor((time % 1000) / 10) % 10;
+      console.log('lastDigit', lastDigit)
       const newRecords = [...currentRecord, lastDigit];
       setCurrentRecord(newRecords);
       
