@@ -5,7 +5,11 @@ function PlayerRecords({ records: recordGroup }) {
     <div className="player-records">
       <ul>
         {recordGroup.map((records, index) => (
-          <li key={index}>{`플레이어 ${index + 1}    ${records[0]} X ${getSecondDisplayRecord(records)} = ${getResultOfRecords(records)}`}</li>
+          <li key={index}>
+            <span>{getEmoji(records)} &nbsp;</span>
+            <span className='player-name'>{`Player ${index + 1}`}</span>    
+            <span className='player-record'>{`${records[0]} X ${getSecondDisplayRecord(records)} = ${getResultOfRecords(records)}`}</span>
+          </li>
         ))}
       </ul>
     </div>
@@ -18,6 +22,25 @@ const getSecondDisplayRecord = (records) => {
 
 const getResultOfRecords = (records) => {
     return records.length === 2 ? records[0] * records[1] : 0;
+}
+
+const getEmoji = (records) => {
+    const result = getResultOfRecords(records);
+    if (result >= 81) {
+        return '🥳';
+    } else if (result >= 60) {
+        return '🤩';
+    } else if (result >= 40) {
+        return '😚';
+    } else if (result >= 20) {
+        return '😀';
+    } else if (result >= 10) {
+        return '🤣'
+    } else if (result > 0) {
+        return '😭';
+    } else {
+        return '💣';
+    }
 }
 
 export default PlayerRecords;
