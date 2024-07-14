@@ -37,7 +37,7 @@ function Game() {
       setCurrentRecord(newRecords);
       
       if (isNextTurnRequired(newRecords)) {
-        setRecords((prevRecords) => [...prevRecords, newRecords]);
+        setRecords((prevRecords) => [newRecords, ...prevRecords]);
         setCurrentRecord([]);
         setCurrentPlayer((prevPlayer) => prevPlayer + 1);
       }

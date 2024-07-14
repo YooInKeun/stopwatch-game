@@ -5,9 +5,9 @@ function PlayerRecords({ records: recordGroup }) {
     <div className="player-records">
       <ul>
         {recordGroup.map((records, index) => (
-          <li key={index}>
+          <li key={recordGroup.length - index}>
             <span>{getEmoji(records)} &nbsp;</span>
-            <span className='player-name'>{`Player ${index + 1}`}</span>    
+            <span className='player-name'>{`Player ${recordGroup.length - index}`}</span>    
             <span className='player-record'>{`${records[0]} X ${getSecondDisplayRecord(records)} = ${getResultOfRecords(records)}`}</span>
           </li>
         ))}
