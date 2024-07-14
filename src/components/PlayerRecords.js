@@ -1,4 +1,4 @@
-import React from 'react';
+import Reat from 'react';
 
 function PlayerRecords({ records: recordGroup }) {
   return (
