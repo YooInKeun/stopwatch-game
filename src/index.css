@@ -94,3 +94,10 @@
   flex: 1;
   text-align: left;
 }
+
+.last-digit {
+  font-weight: bold;
+  background: linear-gradient(45deg, #FFD700, #FF8C00);
+  -webkit-background-clip: text;
+  color: transparent;
+}
