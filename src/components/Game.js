@@ -33,6 +33,8 @@ function Game() {
   const handleGo = () => {
     if (isRunning) {
       const lastDigit = Math.floor((time % 1000) / 10) % 10;
+      setIsRunning(!isRunning);
+
       const newRecords = [...currentRecord, lastDigit];
       setCurrentRecord(newRecords);
       
@@ -41,8 +43,9 @@ function Game() {
         setCurrentRecord([]);
         setCurrentPlayer((prevPlayer) => prevPlayer + 1);
       }
+    } else {
+      setIsRunning(!isRunning);
     }
-    setIsRunning(!isRunning);
   };
 
   const isNextTurnRequired = (records) => {
