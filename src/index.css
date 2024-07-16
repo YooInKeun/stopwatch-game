@@ -46,6 +46,9 @@
   width: 30vw;
   height: 30vw;
   transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .control-buttons button.go {
