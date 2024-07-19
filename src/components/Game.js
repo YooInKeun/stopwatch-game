@@ -9,6 +9,7 @@ function Game() {
   const [records, setRecords] = useState([]);
   const [currentPlayer, setCurrentPlayer] = useState(0);
   const [currentRecord, setCurrentRecord] = useState([]);
+  const [lastDigit, setLastDigit] = useState(null);
 
   useEffect(() => {
     let timer;
@@ -28,6 +29,7 @@ function Game() {
     setRecords([]);
     setCurrentPlayer(0);
     setCurrentRecord([]);
+    setLastDigit(null);
   };
 
   const handleGo = () => {
@@ -44,6 +46,8 @@ function Game() {
         setCurrentRecord([]);
         setCurrentPlayer((prevPlayer) => prevPlayer + 1);
       }
+
+      setTimeout(() => setLastDigit(null), 1000); 
     } 
     setIsRunning(!isRunning);
     setTime((time) => Math.floor(time / 1000) * 1000 + milliseconds * 10);
@@ -62,6 +66,7 @@ function Game() {
       <div className="bottom-half">
         <PlayerRecords records={records} currentPlayer={currentPlayer} />
       </div>
+      {lastDigit !== null && <div className="last-digit-effect">{lastDigit}</div>}
     </div>
   );
 }
